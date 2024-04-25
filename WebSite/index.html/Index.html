@@ -21,7 +21,7 @@
 
 	<div class="container">
 		<div class="alert" id="alert" role="alert"></div>
-		<h2 class="h2 mt-5 margem">Cadastro de Produtos</h2>
+		<h2 class="h2 mt-5 margem">Cadastro de Produtos - Desafio Vector</h2>
 		<form id="name_form">
 			<label>Código</label>
 			<input type="text" name="codigo" id="codigo" class="form-control margem">
@@ -67,8 +67,6 @@
 			}
 
 			$('#alert').html('');
-			
-			console.log('Enviando... Codigo: ' + codigo + ' Descricao: ' + descricao + ' valor: ' + valor); 
 
 			$.ajax({
 				url:'http://localhost:8091/vector/produtos/post',

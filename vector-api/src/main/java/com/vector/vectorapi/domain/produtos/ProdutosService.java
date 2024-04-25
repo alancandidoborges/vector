@@ -16,7 +16,7 @@ public class ProdutosService {
     public String salvar(ProdutosDto dto){
         String strSql;
         strSql = "INSERT INTO tab_produtos(cod, descricao, valor) VALUES (";
-        strSql = strSql + dto.getCod() + ", '" + dto.getDescricao() +  "', " + dto.getValor();
+        strSql = strSql + dto.getCod() + ", '" + dto.getDescricao() +  "', " + dto.getValor() + ");" ;
         var produto = new Produtos();
 
         Optional<Produtos> optional = repository.findById(dto.getCod());
