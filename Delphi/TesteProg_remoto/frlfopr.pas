@@ -1,0 +1,78 @@
+unit frlfopr;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  ExtCtrls, QuickRpt, StdCtrls, DB, DBTables, QRCtrls;
+
+type
+  TF_RL_FOPR = class(TForm)
+    QuickRep1: TQuickRep;
+    QryFornec: TQuery;
+    DsFornec: TDataSource;
+    QrySoma: TQuery;
+    DsSoma: TDataSource;
+    QryFornecCOD_FOR: TFloatField;
+    QryFornecNOME: TStringField;
+    QryForPro: TQuery;
+    QueryTemp: TQuery;
+    DSForPro: TDataSource;
+    QRBand1: TQRBand;
+    QRLabel1: TQRLabel;
+    QRBand2: TQRBand;
+    QRLabel2: TQRLabel;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRDBText2: TQRDBText;
+    QryForProcod_for: TFloatField;
+    QryForProcod_pro: TStringField;
+    QryForPronome: TStringField;
+    QryForProvalor: TFloatField;
+    QRSubDetail1: TQRSubDetail;
+    QRDBText4: TQRDBText;
+    QRDBText5: TQRDBText;
+    QRSubDetail2: TQRSubDetail;
+    QRDBText1: TQRDBText;
+    QrySomatotal: TFloatField;
+    QRLabel5: TQRLabel;
+    procedure QryFornecAfterScroll(DataSet: TDataSet);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_RL_FOPR: TF_RL_FOPR;
+
+implementation
+
+{$R *.DFM}
+
+procedure TF_RL_FOPR.QryFornecAfterScroll(DataSet: TDataSet);
+var
+  StrSql: String;
+begin
+  StrSql := 'select rel.cod_for, rel.cod_pro, prod.nome,  prod.valor';
+  StrSql := StrSql + ' from tbl_forpro rel, tbl_produto prod';
+  StrSql := StrSql + ' where rel.cod_pro = prod.cod_pro';
+  StrSql := StrSql + ' and cod_for = ' + QryFornec.FieldByName('COD_FOR').AsString;
+
+  QryForPro.Close;
+  QryForPro.SQL.Clear;
+  QryForPro.SQL.Add(StrSql);
+  QryForPro.Open;
+
+  StrSql := 'select sum(prod.valor) as total';
+  StrSql := StrSql + ' from tbl_forpro rel, tbl_produto prod';
+  StrSql := StrSql + ' where rel.cod_pro = prod.cod_pro';
+  StrSql := StrSql + ' and cod_for = ' + QryFornec.FieldByName('COD_FOR').AsString;
+
+  QrySoma.Close;
+  QrySoma.SQL.Clear;
+  QrySoma.SQL.Add(StrSql);
+  QrySoma.Open;
+end;
+
+end.

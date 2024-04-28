@@ -1,0 +1,64 @@
+object F_REL_FOPR: TF_REL_FOPR
+  Left = 170
+  Top = 219
+  Width = 631
+  Height = 443
+  Caption = 'F_REL_FOPR'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 2
+    Top = 37
+    Width = 618
+    Height = 369
+    DataSource = DSLista
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+  end
+  object Button1: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Inclui'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 88
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Exclui'
+    TabOrder = 2
+    OnClick = Button2Click
+  end
+  object DSLista: TDataSource
+    DataSet = QueryLista
+    Left = 152
+    Top = 64
+  end
+  object QueryLista: TQuery
+    DatabaseName = 'DB_TESTE'
+    Left = 112
+    Top = 64
+  end
+  object QueryTemp: TQuery
+    DatabaseName = 'DB_TESTE'
+    Left = 216
+    Top = 64
+  end
+end

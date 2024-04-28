@@ -1,0 +1,147 @@
+object F_CAD_PROD: TF_CAD_PROD
+  Left = 211
+  Top = 162
+  Width = 611
+  Height = 245
+  Caption = 'F_CAD_PROD'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 16
+    Width = 36
+    Height = 13
+    Caption = 'C'#243'digo:'
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 40
+    Width = 31
+    Height = 13
+    Caption = 'Nome:'
+  end
+  object Label3: TLabel
+    Left = 8
+    Top = 64
+    Width = 27
+    Height = 13
+    Caption = 'Valor:'
+  end
+  object EdtCodigo: TEdit
+    Left = 48
+    Top = 16
+    Width = 65
+    Height = 21
+    TabOrder = 0
+  end
+  object EdtNome: TEdit
+    Left = 48
+    Top = 40
+    Width = 153
+    Height = 21
+    TabOrder = 1
+  end
+  object RG_ESTADO: TRadioGroup
+    Left = 8
+    Top = 96
+    Width = 89
+    Height = 73
+    Caption = 'Estado atual'
+    Enabled = False
+    ItemIndex = 0
+    Items.Strings = (
+      'Parado'
+      'Inclus'#227'o'
+      'Altera'#231#227'o')
+    TabOrder = 2
+  end
+  object btnIncluir: TButton
+    Left = 104
+    Top = 96
+    Width = 75
+    Height = 25
+    Caption = 'Inclui'
+    TabOrder = 3
+    OnClick = btnIncluirClick
+  end
+  object btnAlterar: TButton
+    Left = 104
+    Top = 120
+    Width = 75
+    Height = 25
+    Caption = 'Altera'
+    TabOrder = 4
+    OnClick = btnAlterarClick
+  end
+  object btnExcluir: TButton
+    Left = 104
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = 'Exclui'
+    TabOrder = 5
+    OnClick = btnExcluirClick
+  end
+  object DBGrid1: TDBGrid
+    Left = 216
+    Top = 16
+    Width = 377
+    Height = 193
+    DataSource = DsProd
+    TabOrder = 6
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+  end
+  object btnOK: TButton
+    Left = 8
+    Top = 176
+    Width = 75
+    Height = 25
+    Caption = 'OK'
+    TabOrder = 7
+    OnClick = btnOKClick
+  end
+  object btnCancelar: TButton
+    Left = 88
+    Top = 176
+    Width = 75
+    Height = 25
+    Caption = 'Cancela'
+    TabOrder = 8
+    OnClick = btnCancelarClick
+  end
+  object EdtValor: TEdit
+    Left = 48
+    Top = 64
+    Width = 65
+    Height = 21
+    TabOrder = 9
+  end
+  object QryProd: TQuery
+    DatabaseName = 'DB_TESTE'
+    Left = 256
+    Top = 48
+  end
+  object DsProd: TDataSource
+    DataSet = QryProd
+    Left = 288
+    Top = 48
+  end
+  object QueryTemp: TQuery
+    DatabaseName = 'DB_TESTE'
+    Left = 424
+    Top = 48
+  end
+end
